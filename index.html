@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LZTR1 Germline Variants & Cancer Risk — Evidence Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 3v6"/><path d="M16 23v6"/><path d="M3 16h6"/><path d="M23 16h6"/>
+        <circle cx="16" cy="16" r="6"/>
+        <path d="M10.5 10.5 5 5"/><path d="M21.5 10.5 27 5"/><path d="M10.5 21.5 5 27"/><path d="M21.5 21.5 27 27"/>
+      </svg>
+      LZTR1 Cancer Variant Dashboard
+    </div>
+    <nav class="toplinks">
+      <a href="#overview">Overview</a>
+      <a href="#diseases">Disease Spectrum</a>
+      <a href="#cancer-types">Cancer Types</a>
+      <a href="#variants">Germline Variants</a>
+      <a href="#therapy">Therapy Relevance</a>
+      <a href="#surveillance">Surveillance</a>
+      <a href="#references">References</a>
+    </nav>
+    <div class="topbar-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="overview">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Germline Cancer Risk Knowledge Base</span>
+        <h1 class="hero-title text-2xl">LZTR1 Germline Variants and Cancer Risk</h1>
+        <p class="hero-sub">Comprehensive evidence synthesis of germline pathogenic variants in <b>LZTR1</b> (leucine-zipper-like transcriptional regulator 1) and their associations with cancer, tumor predisposition syndromes, and therapy relevance — compiled from peer-reviewed literature, OncoKB, NCBI MedGen, ERN-GENTURIS guidelines, and selected ClinVar checks through September 2026.</p>
+        <div class="gene-facts">
+          <div class="fact-chip"><span class="fk">Gene</span><span class="fv">LZTR1</span></div>
+          <div class="fact-chip"><span class="fk">Locus</span><span class="fv">22q11.21</span></div>
+          <div class="fact-chip"><span class="fk">Function</span><span class="fv">Tumor Suppressor</span></div>
+          <div class="fact-chip"><span class="fk">RefSeq</span><span class="fv">NM_006767.4</span></div>
+          <div class="fact-chip"><span class="fk">Protein</span><span class="fv">840 aa</span></div>
+          <div class="fact-chip"><span class="fk">UniProt</span><span class="fv">Q8N653</span></div>
+        </div>
+      </div>
+      <div class="disclaimer-box">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          How to read this dashboard
+        </h3>
+        <p>Each association is classified into one of four evidence tiers — from <b>established cancer-risk syndrome</b> (schwannomatosis) down to <b>mechanistic or somatic-only evidence</b>. Germline and somatic findings are kept distinct to avoid overclaiming cancer predisposition from tumor-sequencing data alone.</p>
+        <p><b>Most LZTR1 pathogenic variants have not been linked to a specific cancer risk estimate.</b> Variant-level penetrance data is sparse; clinical management depends on the associated syndrome, not on individual variant calls.</p>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">115 + 4</div><div class="lbl">OncoKB-annotated germline variants (13 pathogenic, 96 likely pathogenic, 6 VUS-SI) plus 4 literature-reported case variants</div></div>
+      <div class="stat-card"><div class="num">80%</div><div class="lbl">of 22q-related schwannomatosis cases without SMARCB1 mutation attributable to LZTR1</div></div>
+      <div class="stat-card"><div class="num">Recurrent</div><div class="lbl">somatic LZTR1 alterations in glioblastoma (10/291 mutated exomes in Brennan 2013; LoF frequency including deletions reported up to ~22% in some analyses)</div></div>
+      <div class="stat-card"><div class="num">0.36%</div><div class="lbl">general-population frequency of potential LZTR1 LoF variants (incomplete penetrance)</div></div>
+    </div>
+    <div class="tier-legend">
+      <span class="tier-pill t1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> Established — cancer-risk syndrome</span>
+      <span class="tier-pill t2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg> Reported / limited evidence</span>
+      <span class="tier-pill t3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg> Mechanistic / somatic only</span>
+      <span class="tier-pill t4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg> Not established</span>
+    </div>
+  </div>
+</section>
+
+<!-- DISEASE SPECTRUM -->
+<section id="diseases">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Associated Conditions</span>
+      <h2 class="text-xl">LZTR1-Related Disease Spectrum</h2>
+      <p>Three main germline conditions are linked to LZTR1 pathogenic variants. Only one — schwannomatosis — is an established cancer/tumor predisposition syndrome; the others carry uncertain or syndrome-level cancer risk.</p>
+    </div>
+    <div class="disease-grid">
+      <article class="disease-card">
+        <span class="badge t1">Established</span>
+        <h3>LZTR1-Related Schwannomatosis</h3>
+        <div class="meta-row"><span><b>Inheritance:</b> Autosomal dominant</span><span><b>Penetrance:</b> Moderate / incomplete</span></div>
+        <p>Adult-onset tumor predisposition syndrome. Hallmark: multiple schwannomas (peripheral, spinal, cranial). Unilateral vestibular schwannomas reported. Typically presents with chronic pain. Median symptom onset ~30 years; diagnosis often confirmed after age 40.</p>
+        <div class="cites"><a href="https://pubmed.ncbi.nlm.nih.gov/24362817/" target="_blank" rel="noopener">Piotrowski et al., Nat Genet 2014</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/25335493/" target="_blank" rel="noopener">Paganini et al., EJHG 2015</a> · <a href="https://www.oncokb.org/gene/LZTR1/germline" target="_blank" rel="noopener">OncoKB</a></div>
+      </article>
+      <article class="disease-card">
+        <span class="badge t2">Reported</span>
+        <h3>Noonan Syndrome 10 (AD) & Noonan Syndrome 2 (AR)</h3>
+        <div class="meta-row"><span><b>Inheritance:</b> AD (NS10) / AR (NS2)</span><span><b>Penetrance:</b> Variable</span></div>
+        <p>RASopathy with craniofacial features, short stature, congenital heart defects, developmental delay. Biallelic LZTR1 variants (NS2) described as carrying "a slightly increased risk for certain cancers." Across all Noonan syndrome genotypes, childhood cancer risk is estimated ~8-fold above population baseline, driven mainly by juvenile myelomonocytic leukemia (JMML).</p>
+        <div class="cites"><a href="https://www.ncbi.nlm.nih.gov/medgen/902892" target="_blank" rel="noopener">NCBI MedGen NS10</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/30481304/" target="_blank" rel="noopener">Motta et al., Hum Mol Genet 2019</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12699086/" target="_blank" rel="noopener">Demir et al., JCRPE 2025</a></div>
+      </article>
+      <article class="disease-card">
+        <span class="badge t2">Reported</span>
+        <h3>Isolated Multiple Café-au-Lait Macules</h3>
+        <div class="meta-row"><span><b>Inheritance:</b> Autosomal dominant</span><span><b>Frequency in cohort:</b> 6% (51/849)</span></div>
+        <p>Heterozygous LZTR1 loss-of-function variants identified in 6% of individuals with isolated multiple café-au-lait macules (CaLMs) lacking NF1/SPRED1 variants — an NF1-like phenotype. Truncating variants overlap with schwannomatosis- and Noonan syndrome-associated variants. In 2 families, CaLMs and schwannomas co-occurred.</p>
+        <div class="cites"><a href="https://pubmed.ncbi.nlm.nih.gov/39140257/" target="_blank" rel="noopener">Mastromoro et al., Genet Med 2024</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CANCER TYPES -->
+<section id="cancer-types">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Cancer Associations</span>
+      <h2 class="text-xl">LZTR1 and Specific Cancer Types</h2>
+      <p>Germline LZTR1 variants are definitively linked to schwannoma/nerve sheath tumor predisposition. Evidence for other cancer types is emerging but remains limited — mostly case reports, pan-cancer bioinformatics, or mechanistic studies. Somatic LZTR1 alterations (frequent in glioblastoma) are reported separately from germline cancer risk.</p>
+    </div>
+    <div class="cancer-grid" id="cancer-cards">
+      <!-- cancer cards injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- GERMLINE VARIANTS TABLE -->
+<section id="variants">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">OncoKB-Curated Germline Variants</span>
+      <h2 class="text-xl">Annotated Germline Variants</h2>
+      <p>All 115 OncoKB-annotated germline LZTR1 variants are classified for schwannomatosis risk with moderate penetrance. No variant-specific cancer risk beyond schwannoma/nerve sheath tumors has been established at the individual variant level. Use the filters to search by HGVS, protein change, classification, or variant type.</p>
+    </div>
+    <div class="filter-bar">
+      <input type="search" id="var-search" placeholder="Search variant, protein change, or HGVS…" aria-label="Search variants">
+      <select id="filter-class"><option value="">All classifications</option><option value="Pathogenic">Pathogenic</option><option value="Likely Pathogenic">Likely Pathogenic</option><option value="VUS with Special Interpretation">VUS-SI</option></select>
+      <select id="filter-type"><option value="">All variant types</option><option value="nonsense">Nonsense</option><option value="frameshift">Frameshift</option><option value="missense">Missense</option><option value="splice">Splice site</option><option value="start-loss">Start-loss</option><option value="delins">Delins</option></select>
+      <span class="fcount" id="fcount"></span>
+    </div>
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead><tr><th>HGVS (c.)</th><th>Protein change</th><th>Classification</th><th>Penetrance</th><th>Variant type</th><th>Associated syndrome</th><th>Source</th></tr></thead>
+          <tbody id="variant-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MECHANISM & THERAPY -->
+<section id="therapy">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Mechanism & Therapeutic Implications</span>
+      <h2 class="text-xl">Pathway Biology and Therapy Relevance</h2>
+      <p>LZTR1 functions as a substrate adaptor for the CUL3 E3 ubiquitin ligase, targeting RAS-family GTPases and receptor tyrosine kinases (EGFR, AXL) for ubiquitin-dependent lysosomal degradation. Loss-of-function leads to RAS/MAPK overactivation and receptor kinase accumulation — creating therapeutic vulnerabilities that are still investigational, not standard of care.</p>
+    </div>
+
+    <div class="mech-flow">
+      <div class="mech-node">LZTR1</div>
+      <span class="mech-arrow">→</span>
+      <div class="mech-node">CUL3 E3 ligase</div>
+      <span class="mech-arrow">→</span>
+      <div class="mech-node">RAS ubiquitination</div>
+      <span class="mech-arrow">↓</span>
+      <div class="mech-node">RAS/MAPK<br>regulation</div>
+      <span class="mech-arrow">|</span>
+      <div class="mech-node hl">Loss of LZTR1</div>
+      <span class="mech-arrow">→</span>
+      <div class="mech-node">↑RAS signaling<br>↑EGFR, ↑AXL</div>
+    </div>
+
+    <div class="therapy-grid">
+      <article class="therapy-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.5 20.5 4.5 14.5 7 12 10.5 15.5 17 9 19.5 11.5Z"/></svg>
+          EGFR + AXL Co-inhibition
+        </h3>
+        <p style="font-size:.87rem;color:var(--color-text-muted);margin-bottom:.75rem;">Preclinical evidence (mouse models, cell lines) that LZTR1-mutant tumors accumulate EGFR and AXL and are vulnerable to concurrent inhibition of both receptor tyrosine kinases. Ko et al. (2023) demonstrated precision targeting opportunity for LZTR1-mutant cancers.</p>
+        <ul>
+          <li><b>Mechanism:</b> LZTR1 loss → impaired EGFR/AXL lysosomal degradation → kinase accumulation</li>
+          <li><b>Drug classes:</b> EGFR inhibitors (e.g., osimertinib, afatinib) + AXL inhibitors (investigational)</li>
+          <li><b>Evidence level:</b> Preclinical / mechanistic — no clinical trial data yet</li>
+          <li><b>Relevance:</b> Somatic or germline LZTR1-mutant tumors (glioblastoma, other solid tumors)</li>
+        </ul>
+        <div class="cites"><a href="https://pubmed.ncbi.nlm.nih.gov/36445254/" target="_blank" rel="noopener">Ko et al., Cancer Discov 2023</a></div>
+      </article>
+
+      <article class="therapy-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.5 20.5 4.5 14.5 7 12 10.5 15.5 17 9 19.5 11.5Z"/></svg>
+          TKI Resistance in CML
+        </h3>
+        <p style="font-size:.87rem;color:var(--color-text-muted);margin-bottom:.75rem;">Bigenzahn et al. (2018) identified LZTR1 in a haploid genetic screen for tyrosine kinase inhibitor (TKI) resistance in chronic myeloid leukemia (CML). LZTR1 loss enhanced MAPK signaling and reduced sensitivity to imatinib and other BCR-ABL TKIs. Full-length LZTR1 re-expression reverted resistance.</p>
+        <ul>
+          <li><b>Mechanism:</b> LZTR1 loss → decreased RAS ubiquitination → enhanced MAPK signaling → TKI bypass</li>
+          <li><b>Domain specificity:</b> Kelch-domain mutations disrupt imatinib sensitivity; BTB/BACK-domain mutations do not</li>
+          <li><b>Evidence level:</b> In vitro / genetic screens — clinical correlation not yet established</li>
+          <li><b>Relevance:</b> CML and potentially other TKI-treated malignancies</li>
+        </ul>
+        <div class="cites"><a href="https://www.science.org/doi/10.1126/science.aap7607" target="_blank" rel="noopener">Bigenzahn et al., Science 2018</a> · <a href="https://www.nature.com/articles/s41589-018-0219-9" target="_blank" rel="noopener">Nature Chem Biol 2018 commentary</a></div>
+      </article>
+
+      <article class="therapy-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.5 20.5 4.5 14.5 7 12 10.5 15.5 17 9 19.5 11.5Z"/></svg>
+          Osimertinib Resistance in NSCLC
+        </h3>
+        <p style="font-size:.87rem;color:var(--color-text-muted);margin-bottom:.75rem;">A 2025 case report described an EGFR-mutated NSCLC patient harboring a germline LZTR1 c.1653C>G (p.Y551*) variant who had rapid disease progression on first-line osimertinib-chemotherapy (PFS 4 months vs. median 27.9 months). This is the first clinical report linking a germline LZTR1 mutation to EGFR-TKI resistance.</p>
+        <ul>
+          <li><b>Variants:</b> LZTR1 c.1653C>G (p.Y551*), heterozygous, classified pathogenic</li>
+          <li><b>Somatic correlates:</b> LZTR1 stopgain R362* and R340* also identified in osimertinib-resistant NSCLC</li>
+          <li><b>Evidence level:</b> Single case report + preclinical — insufficient for clinical action</li>
+          <li><b>Implication:</b> Potential negative biomarker for EGFR-TKI efficacy; germline testing recommended</li>
+        </ul>
+        <div class="cites"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11921366/" target="_blank" rel="noopener">Park et al., Transl Lung Cancer Res 2025</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8891830/" target="_blank" rel="noopener">Oh et al., PMC 2022</a></div>
+      </article>
+
+      <article class="therapy-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.5 20.5 4.5 14.5 7 12 10.5 15.5 17 9 19.5 11.5Z"/></svg>
+          MEK Inhibitors (Proposed)
+        </h3>
+        <p style="font-size:.87rem;color:var(--color-text-muted);margin-bottom:.75rem;">Given that LZTR1 loss activates RAS/MAPK signaling, MEK inhibitors (e.g., trametinib) have been proposed as a therapeutic strategy for LZTR1-mutant tumors, particularly in the context of therapy resistance. This remains hypothetical, supported by pathway logic rather than clinical trial data.</p>
+        <ul>
+          <li><b>Rationale:</b> LZTR1 dysfunction → RAS accumulation → MAPK overactivation → MEK dependency</li>
+          <li><b>Drug class:</b> MEK inhibitors (e.g., trametinib)</li>
+          <li><b>Evidence level:</b> Mechanistic inference only — no clinical data</li>
+          <li><b>Relevance:</b> Theoretical strategy for overcoming therapy resistance in LZTR1-mutant tumors</li>
+        </ul>
+        <div class="cites"><a href="https://www.mdpi.com/1422-0067/26/14/6704" target="_blank" rel="noopener">Wieleba et al., Int J Mol Sci 2025</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SURVEILLANCE -->
+<section id="surveillance">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Clinical Surveillance</span>
+      <h2 class="text-xl">Tumor Surveillance Recommendations</h2>
+      <p>Based on the ERN-GENTURIS European schwannomatosis guideline (endorsed for LZTR1-related schwannomatosis) and AACR 2016 surveillance guidance. These recommendations apply to individuals with confirmed LZTR1 pathogenic/likely pathogenic variants and a personal or family history of schwannomatosis.</p>
+    </div>
+    <div class="surv-grid">
+      <div class="surv-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h2M8 17h4"/></svg>
+          Baseline Imaging at Diagnosis
+        </h3>
+        <div class="surv-list">
+          <div class="surv-item"><div class="dot">1</div><div class="content"><b>High-resolution brain MRI</b><span>Fine cuts &lt;3 mm through internal auditory canals; T1 pre/post-contrast; consider CISS/FIESTA T2-volume acquisition. <span class="strength-tag">Moderate</span></span></div></div>
+          <div class="surv-item"><div class="dot">2</div><div class="content"><b>Spine MRI</b><span>Full craniospinal imaging at diagnosis. <span class="strength-tag">Strong</span></span></div></div>
+          <div class="surv-item"><div class="dot">3</div><div class="content"><b>Whole-body MRI</b><span>To quantify tumor burden at baseline; may alternate with craniospinal MRI in stable patients. Does not replace formal brain MRI. <span class="strength-tag">Moderate</span></span></div></div>
+          <div class="surv-item"><div class="dot">!</div><div class="content"><b>Exception: incidental LZTR1 carriers</b><span>Individuals with incidentally detected LZTR1 pathogenic variants, no personal/family history of schwannomas, and no pain or symptoms should <b>not</b> undergo MRI — risk likely &lt;1%. <span class="strength-tag">Moderate</span></span></div></div>
+        </div>
+      </div>
+      <div class="surv-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          Ongoing Surveillance
+        </h3>
+        <div class="surv-list">
+          <div class="surv-item"><div class="dot">A</div><div class="content"><b>Annual clinical assessment</b><span>Pain history, neurological examination, quality-of-life (EQ-5D), psychological needs. Starting age 12–14 years. <span class="strength-tag">Moderate</span></span></div></div>
+          <div class="surv-item"><div class="dot">B</div><div class="content"><b>Routine MRI interval: 2–3 years</b><span>For stable patients with tumors present at baseline. More frequent imaging is not recommended unless symptoms change. <span class="strength-tag">Moderate</span></span></div></div>
+          <div class="surv-item"><div class="dot">C</div><div class="content"><b>Brain tumors: MRI at 12 months</b><span>If tumors are present on brain imaging at baseline, repeat MRI at 12 months. <span class="strength-tag">Moderate</span></span></div></div>
+          <div class="surv-item"><div class="dot">D</div><div class="content"><b>Symptom-driven imaging</b><span>Any change in neurological symptoms or localized pain mandates earlier, targeted MRI with fine-cut sequences. <span class="strength-tag">Moderate</span></span></div></div>
+          <div class="surv-item"><div class="dot">E</div><div class="content"><b>Small asymptomatic non-CNS tumors</b><span>Tumors &lt;1 cm in limbs without symptoms may not require repeat imaging. <span class="strength-tag">Moderate</span></span></div></div>
+          <div class="surv-item"><div class="dot">F</div><div class="content"><b>AACR 2016 guidance</b><span>Brain and spine MRI every 2–3 years beginning at 15–19 years for LZTR1-related schwannomatosis. Whole-body MRI may be considered. <span class="strength-tag">AACR</span></span></div></div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem;font-size:.82rem;color:var(--color-text-muted);max-width:80ch;"><b>Note:</b> PET scanning is <b>not</b> recommended for schwannoma diagnosis or surveillance. Ultrasound may be useful for targeted investigation of pain in limbs or intercostal regions. Malignant transformation risk is described as more common in SMARCB1-related schwannomatosis; the ERN-GENTURIS guideline does not identify the same specific increased malignancy concern for LZTR1.</p>
+    <div class="cites" style="margin-top:.75rem;font-size:.75rem;"><a href="https://www.genturis.eu/l=fra/Assets/Schwannomatosis-Guideline---ERN-GENTURIS.pdf" target="_blank" rel="noopener" style="color:var(--color-primary);text-decoration:none;">ERN-GENTURIS Schwannomatosis Guideline</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/39937237/" target="_blank" rel="noopener" style="color:var(--color-primary);text-decoration:none;">Perrino et al., Clin Cancer Res 2025</a></div>
+  </div>
+</section>
+
+<!-- KEY CASE REPORTS -->
+<section id="case-reports">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Notable Case Reports</span>
+      <h2 class="text-xl">Emerging Cancer Associations (Individual Cases)</h2>
+      <p>These case reports describe cancer types beyond schwannomatosis in individuals with LZTR1 variants. They represent the weakest tier of evidence and should not be interpreted as established cancer-risk associations.</p>
+    </div>
+    <div class="case-grid">
+      <div class="case-card">
+        <div class="case-meta"><b>Variant(s):</b>R210*; c.2220-17C>A; E563Q<br><b>Cancer:</b>Acute lymphoblastic leukemia (ALL)<br><b>Context:</b>Noonan syndrome<br><b>Source:</b>Literature review of NS cancer cases</div>
+        <div class="case-body"><p>Three LZTR1 variants were identified in patients with Noonan syndrome who developed acute lymphoblastic leukemia. These were reported as part of a broader review of cancer in Noonan syndrome across all causative genes; no LZTR1-specific cancer-risk percentage was established.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12699086/" target="_blank" rel="noopener">Demir & Yüksek Acınıklı, JCRPE 2025</a></div>
+      </div>
+      <div class="case-card">
+        <div class="case-meta"><b>Variant:</b>R284C (heterozygous)<br><b>Cancer:</b>Oligoastrocytoma<br><b>Context:</b>Noonan syndrome, GH treatment<br><b>Age at diagnosis:</b>22 years</div>
+        <div class="case-body"><p>A patient with Noonan syndrome and an LZTR1 R284C heterozygous variant received growth hormone (GH) therapy between ages 15 and 17, and developed oligoastrocytoma at age 22. Causality between the variant, GH treatment, and tumor development has not been established.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12699086/" target="_blank" rel="noopener">Demir & Yüksek Acınıklı, JCRPE 2025</a></div>
+      </div>
+      <div class="case-card">
+        <div class="case-meta"><b>Variant:</b>c.1260+1del<br><b>Cancer:</b>Bilateral breast cancer<br><b>Patient:</b>38-year-old woman<br><b>Classification:</b>Likely pathogenic (Franklin)</div>
+        <div class="case-body"><p>A 38-year-old Polish woman with synchronous bilateral breast cancer carried a heterozygous LZTR1 c.1260+1del splice-site variant. In silico analysis predicted loss of function. The authors proposed it as a potential predictor of early-age breast cancer, but the finding is putative and requires functional and epidemiological confirmation. Not yet in ClinVar.</p><a href="https://www.mdpi.com/1422-0067/26/14/6704" target="_blank" rel="noopener">Wieleba et al., Int J Mol Sci 2025</a></div>
+      </div>
+      <div class="case-card">
+        <div class="case-meta"><b>Variant:</b>c.1653C>G (p.Y551*)<br><b>Cancer:</b>EGFR-mutated NSCLC<br><b>Patient:</b>Stage IIIA lung adenocarcinoma<br><b>Classification:</b>Pathogenic (germline)</div>
+        <div class="case-body"><p>First clinical report of a germline LZTR1 mutation in an EGFR-mutated NSCLC patient with rapid progression on osimertinib-chemotherapy (PFS 4 months vs. median 27.9 months). Authors recommend germline testing as part of initial NSCLC workup and propose LZTR1 as a potential negative biomarker for EGFR-TKI efficacy.</p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11921366/" target="_blank" rel="noopener">Park et al., Transl Lung Cancer Res 2025</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS NOT KNOWN -->
+<section id="unknowns">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Knowledge Gaps</span>
+      <h2 class="text-xl">What Is Not Known</h2>
+      <p>Critical uncertainties in the current evidence base that prevent definitive cancer-risk estimation for individual LZTR1 variants.</p>
+    </div>
+    <div class="unknown-list">
+      <div class="unknown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Variant-specific penetrance:</b> No numerical penetrance estimate exists for any individual LZTR1 variant. General penetrance is "moderate" and incomplete.</p></div>
+      <div class="unknown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Non-schwannoma malignancy risk:</b> Whether LZTR1 germline variants predispose to cancers beyond schwannomas/nerve sheath tumors is not established. Evidence is limited to case reports.</p></div>
+      <div class="unknown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Therapy predictive value:</b> No clinical trial data supports LZTR1 status as a predictive biomarker for any drug class. All therapy evidence is preclinical or from single case reports.</p></div>
+      <div class="unknown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Genotype-phenotype correlation:</b> No consistent correlation between specific LZTR1 variants and clinical phenotype (schwannomatosis vs. Noonan vs. CaLMs) has been established.</p></div>
+      <div class="unknown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Population frequency paradox:</b> The general-population frequency of potential LZTR1 LoF variants (0.36%) is substantially higher than expected for a pathogenic cancer-risk allele, complicating variant interpretation.</p></div>
+      <div class="unknown-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg><p><b>Germline vs. somatic distinction:</b> Somatic LZTR1 mutations are frequent in glioblastoma (~22%) and other tumors, but this does not imply germline cancer predisposition. The relationship between germline and somatic LZTR1 alterations in oncogenesis remains poorly defined.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS -->
+<section id="methods" style="border-bottom:none;">
+  <div class="wrap">
+    <details class="methods">
+      <summary>Methods &amp; Data Sources<span class="chev">▾</span></summary>
+      <div class="methods-body">
+        <p><b>Literature search:</b> Systematic PubMed queries for "LZTR1 germline cancer," "LZTR1 schwannomatosis variants," "LZTR1 Noonan syndrome cancer," "LZTR1 glioblastoma EGFR AXL," "LZTR1 CUL3 ubiquitin ligase RAS," and related terms. Search date: September 2026.</p>
+        <p><b>Variant databases:</b> OncoKB (Memorial Sloan Kettering) germline LZTR1 annotations; ClinVar variant classifications; NCBI MedGen for disease associations.</p>
+        <p><b>Clinical guidelines:</b> ERN-GENTURIS European schwannomatosis guideline for surveillance recommendations; AACR 2016 surveillance guidance for pediatric schwannomatosis.</p>
+        <p><b>Evidence tiering:</b> Tier 1 (established) = peer-reviewed evidence for cancer/tumor predisposition syndrome linked to germline LZTR1 variants. Tier 2 (reported) = case reports or limited cohort evidence for cancer associations beyond schwannomatosis. Tier 3 (mechanistic/somatic) = preclinical or somatic-only evidence. Tier 4 (not established) = no evidence of cancer association.</p>
+        <p><b>Limitations:</b> This dashboard synthesizes published literature as of September 2026 and does not constitute medical advice. Variant classifications may change as new evidence emerges. Always consult a clinical geneticist or genetic counselor for variant interpretation.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="references">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Primary Literature</span>
+      <h2 class="text-xl">Key References</h2>
+    </div>
+    <ol class="ref-list">
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pubmed.ncbi.nlm.nih.gov/24362817/" target="_blank" rel="noopener">Germline loss-of-function mutations in LZTR1 predispose to an inherited disorder of multiple schwannomas.</a><div class="rmeta">Piotrowski A, et al. Nat Genet. 2014;46(2):182–187. PMID: 24362817.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pubmed.ncbi.nlm.nih.gov/25335493/" target="_blank" rel="noopener">Expanding the mutational spectrum of LZTR1 in schwannomatosis.</a><div class="rmeta">Paganini I, et al. Eur J Hum Genet. 2015;23(7):963–968. PMID: 25335493.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pubmed.ncbi.nlm.nih.gov/35391499/" target="_blank" rel="noopener">Comparison of the frequency of loss-of-function LZTR1 variants between schwannomatosis patients and the general population.</a><div class="rmeta">Deng F, Evans DG, Smith MJ. Hum Mutat. 2022;43(7):919–927. PMID: 35391499.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pubmed.ncbi.nlm.nih.gov/36445254/" target="_blank" rel="noopener">LZTR1 Mutation Mediates Oncogenesis through Stabilization of EGFR and AXL.</a><div class="rmeta">Ko A, et al. Cancer Discov. 2023;13(3):702–723. PMID: 36445254.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://www.science.org/doi/10.1126/science.aap7607" target="_blank" rel="noopener">LZTR1 is a regulator of RAS ubiquitination and signaling.</a><div class="rmeta">Bigenzahn JW, et al. Science. 2018;362:1171–1177.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pubmed.ncbi.nlm.nih.gov/30481304/" target="_blank" rel="noopener">Dominant Noonan syndrome-causing LZTR1 mutations specifically affect the Kelch domain substrate-recognition surface and enhance RAS-MAPK signaling.</a><div class="rmeta">Motta M, et al. Hum Mol Genet. 2019;28(6):1007–1022. PMID: 30481304.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pubmed.ncbi.nlm.nih.gov/39937237/" target="_blank" rel="noopener">Update on Cancer and Central Nervous System Tumor Surveillance in Pediatric NF2-, SMARCB1-, and LZTR1-Related Schwannomatosis.</a><div class="rmeta">Perrino MR, et al. Clin Cancer Res. 2025;31(8):1400–1406. PMID: 39937237.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pubmed.ncbi.nlm.nih.gov/39062695/" target="_blank" rel="noopener">Phenotypic Expansion of Autosomal Dominant LZTR1-Related Disorders with Special Emphasis on Adult-Onset Features.</a><div class="rmeta">Uliana V, et al. Genes (Basel). 2024;15(7):916. PMID: 39062695.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pubmed.ncbi.nlm.nih.gov/39140257/" target="_blank" rel="noopener">Heterozygosity for loss-of-function variants in LZTR1 is associated with isolated multiple café-au-lait macules.</a><div class="rmeta">Mastromoro G, et al. Genet Med. 2024;26(11):101241. PMID: 39140257.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://www.mdpi.com/1422-0067/26/14/6704" target="_blank" rel="noopener">LZTR1: c.1260+1del Variant as a Significant Predictor of Early-Age Breast Cancer Development.</a><div class="rmeta">Wieleba I, et al. Int J Mol Sci. 2025;26(14):6704.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11921366/" target="_blank" rel="noopener">Novel LZTR1 germline mutation as a mechanism of resistance to osimertinib in EGFR-mutated lung adenocarcinoma.</a><div class="rmeta">Park W, et al. Transl Lung Cancer Res. 2025;14(2):625–630.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12699086/" target="_blank" rel="noopener">Noonan Syndrome, Cancer Risk, and Growth Hormone Treatment.</a><div class="rmeta">Demir K, Yüksek Acınıklı K. J Clin Res Pediatr Endocrinol. 2025.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3910500/" target="_blank" rel="noopener">The Somatic Genomic Landscape of Glioblastoma.</a><div class="rmeta">Brennan CW, et al. Cell. 2013;155(2):462–477. (LZTR1 as novel significantly mutated gene in GBM)</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://www.oncokb.org/gene/LZTR1/germline" target="_blank" rel="noopener">OncoKB: LZTR1 Germline Annotations.</a><div class="rmeta">Memorial Sloan Kettering Cancer Center. Accessed September 2026.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://www.genturis.eu/l=fra/Assets/Schwannomatosis-Guideline---ERN-GENTURIS.pdf" target="_blank" rel="noopener">ERN-GENTURIS Schwannomatosis Clinical Guideline.</a><div class="rmeta">European Reference Network on Genetic Tumour Risk Syndromes.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://www.ncbi.nlm.nih.gov/medgen/902892" target="_blank" rel="noopener">Noonan syndrome 10 — NCBI MedGen (Concept ID: C4225280).</a><div class="rmeta">National Center for Biotechnology Information.</div></div></li>
+      <li class="ref-item"><div class="refnum"></div><div class="refbody"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9593223/" target="_blank" rel="noopener">A Comprehensive Pan-Cancer Analysis of the Tumorigenic Effect of LZTR1.</a><div class="rmeta">Pan-cancer TCGA analysis. 2022.</div></div></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>LZTR1 Germline Variant Dashboard · Compiled September 2026 · For research and educational purposes only · Not medical advice</div>
+    <div>Sources: OncoKB · PubMed · ERN-GENTURIS · NCBI MedGen · Selected ClinVar checks</div>
+  </div>
+</footer>
+
+<script>
+// ============ DATA ============
+const variants = [
+  // Pathogenic
+  {hgvs:"c.1084C>T",protein:"R362*",cls:"Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1251C>G",protein:"Y417*",cls:"Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1266_1267del",protein:"C423Lfs*3",cls:"Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1974C>G",protein:"Y658*",cls:"Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2238dup",protein:"Y747Lfs*35",cls:"Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.27del",protein:"Q10Rfs*15",cls:"Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.27dup",protein:"Q10Afs*24",cls:"Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.465C>A",protein:"Y155*",cls:"Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.604_605del",protein:"M202Vfs*57",cls:"Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.628C>T",protein:"R210*",cls:"Pathogenic",type:"nonsense",syndrome:"Schwannomatosis; ALL (NS context)",src:"OncoKB; Demir 2025"},
+  {hgvs:"c.742G>A",protein:"G248R",cls:"Pathogenic",type:"missense",syndrome:"Schwannomatosis; GBM; Noonan syndrome",src:"OncoKB"},
+  {hgvs:"c.791+1G>A",protein:"Not stated",cls:"Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.993+1G>T",protein:"Not stated",cls:"Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  // Likely Pathogenic
+  {hgvs:"c.1A>G",protein:"M1?",cls:"Likely Pathogenic",type:"start-loss",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2T>A",protein:"M1?",cls:"Likely Pathogenic",type:"start-loss",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.42_44delinsCG",protein:"L16Wfs*9",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1018C>T",protein:"R340*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1149+1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1149+3A>G",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1150-1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1214del",protein:"G405Afs*56",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1260+1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1321C>T",protein:"Q441*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1360del",protein:"E454Sfs*7",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1396C>T",protein:"R466W",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis; Noonan syndrome 10",src:"OncoKB"},
+  {hgvs:"c.1397G>A",protein:"R466Q",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1425_1426delinsTT",protein:"Q476*",cls:"Likely Pathogenic",type:"delins",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1426del",protein:"Q476Rfs*80",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1447C>T",protein:"Q483*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1449+1del",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1449+1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1456G>T",protein:"E486*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1510del",protein:"A504Pfs*52",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1616-1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1616-2A>G",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1707C>G",protein:"Y569*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1753_1754del",protein:"S585Cfs*83",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1768C>T",protein:"Q590*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1784_1785del",protein:"K595Rfs*73",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1785+2T>C",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1786-1_1786dup",protein:"E596Gfs*5",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1807del",protein:"V603*",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1838del",protein:"M613Rfs*2",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1887_1888insAG",protein:"R630Sfs*23",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1942+2T>C",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1967_1968insAACATGAA",protein:"A657Tfs*2",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.1974C>A",protein:"Y658*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.200+1dup",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OnCoKB"},
+  {hgvs:"c.200+1G>T",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.200+2del",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2013_2014del",protein:"L672Afs*2",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2062C>T",protein:"R688C",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2063G>A",protein:"R688H",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2069+1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2070-1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2089del",protein:"R697Gfs*10",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2090G>A",protein:"R697Q",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2134G>T",protein:"E712*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.214dup",protein:"T72Nfs*6",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2174dup",protein:"Y726Lfs*56",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2219+1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2220-252_2406del",protein:"Not stated",cls:"Likely Pathogenic",type:"delins",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2243_2244dup",protein:"Y749Tfs*19",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2303dup",protein:"T769Dfs*13",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2325+2T>C",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.238dup",protein:"I80Nfs*15",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2387T>C",protein:"I796T",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2407-1G>C",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2407-2A>G",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2407del",protein:"V803Sfs*10",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2428C>T",protein:"R810W",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.2469_2470delinsT",protein:"L824Wfs*67",cls:"Likely Pathogenic",type:"delins",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.263+2T>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.264-13G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.321-1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.321-2A>G",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.321-2del",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.352dup",protein:"R118Pfs*28",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.353G>A",protein:"R118H",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.357C>G",protein:"Y119*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.372C>T",protein:"V124=",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.400+1del",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.401-1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.401-2_401-1del",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.459del",protein:"F153Lfs*47",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.479_486del",protein:"G160Dfs*6",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.486G>A",protein:"W162*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.494G>A",protein:"W165*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.495G>A",protein:"W165*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.509G>A",protein:"R170Q",cls:"Likely Pathogenic",type:"missense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.510-2A>G",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.529del",protein:"A177Pfs*23",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.540del",protein:"T181Rfs*19",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.651+1G>T",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.651+2T>C",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.652-2del",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.736C>T",protein:"Q246*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.774del",protein:"F258Lfs*93",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.791+1G>C",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.791+1G>T",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.795G>A",protein:"W265*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.890_891del",protein:"Y297Cfs*18",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.902dup",protein:"A302Cfs*14",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.922_993+16del",protein:"Not stated",cls:"Likely Pathogenic",type:"delins",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.963G>A",protein:"W321*",cls:"Likely Pathogenic",type:"nonsense",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.968dup",protein:"V324Rfs*13",cls:"Likely Pathogenic",type:"frameshift",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.993+1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  {hgvs:"c.994-1G>A",protein:"Not stated",cls:"Likely Pathogenic",type:"splice",syndrome:"Schwannomatosis",src:"OncoKB"},
+  // VUS with Special Interpretation
+  {hgvs:"c.1394C>T",protein:"A465V",cls:"VUS with Special Interpretation",type:"missense",syndrome:"Schwannomatosis (VUS-SI)",src:"OncoKB"},
+  {hgvs:"c.1449G>A",protein:"Q483=",cls:"VUS with Special Interpretation",type:"splice",syndrome:"Schwannomatosis (VUS-SI)",src:"OncoKB"},
+  {hgvs:"c.365C>T",protein:"S122L",cls:"VUS with Special Interpretation",type:"missense",syndrome:"Schwannomatosis (VUS-SI)",src:"OncoKB"},
+  {hgvs:"c.651+30ins111",protein:"Not stated",cls:"VUS with Special Interpretation",type:"splice",syndrome:"Schwannomatosis (VUS-SI)",src:"OncoKB"},
+  {hgvs:"c.842C>T",protein:"P281L",cls:"VUS with Special Interpretation",type:"missense",syndrome:"Schwannomatosis (VUS-SI)",src:"OncoKB"},
+  {hgvs:"c.2353_2360delinsTG",protein:"A785_D787delinsC",cls:"VUS with Special Interpretation",type:"delins",syndrome:"Schwannomatosis (VUS-SI)",src:"OncoKB"},
+  // Additional literature-reported variants
+  {hgvs:"c.1260+1del",protein:"Splice-site",cls:"Likely Pathogenic (Franklin)",type:"splice",syndrome:"Schwannomatosis; breast cancer (case report)",src:"Wieleba 2025",penetrance:"Not established"},
+  {hgvs:"c.1653C>G",protein:"Y551*",cls:"Pathogenic",type:"nonsense",syndrome:"Schwannomatosis; NSCLC (TKI resistance)",src:"Park 2025",penetrance:"Not established"},
+  {hgvs:"Not provided in source",protein:"Not stated",cls:"Not classified",type:"splice",syndrome:"ALL (Noonan syndrome context)",src:"Demir 2025",penetrance:"Not established"},
+  {hgvs:"Not provided in source",protein:"E563Q",cls:"Not classified",type:"missense",syndrome:"ALL (Noonan syndrome context)",src:"Demir 2025"},
+  {hgvs:"Not provided in source",protein:"R284C",cls:"Not classified",type:"missense",syndrome:"Oligoastrocytoma (Noonan syndrome, GH-treated)",src:"Demir 2025"},
+];
+
+const cancerCards = [
+  {tier:"t1",name:"Schwannomas / Nerve Sheath Tumors",tier_label:"Established",desc:"Established tumor-predisposition syndrome. Multiple schwannomas (peripheral, spinal, cranial) — predominantly benign nerve sheath tumors. Unilateral vestibular schwannomas reported in LZTR1-related schwannomatosis. Adult onset, typically presenting with chronic pain. LZTR1-specific malignant transformation risk is not established (unlike SMARCB1-related schwannomatosis).",cites:'<a href="https://pubmed.ncbi.nlm.nih.gov/24362817/" target="_blank" rel="noopener">Piotrowski 2014</a> · <a href="https://www.oncokb.org/gene/LZTR1/germline" target="_blank" rel="noopener">OncoKB</a>'},
+  {tier:"t2",name:"Leukemia (ALL) — Noonan Syndrome Context",tier_label:"Reported",desc:"Three LZTR1 variants (R210*, c.2220-17C>A, E563Q) identified in Noonan syndrome patients who developed acute lymphoblastic leukemia. Part of broader NS cancer review; no LZTR1-specific risk estimate.",cites:'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12699086/" target="_blank" rel="noopener">Demir 2025</a>'},
+  {tier:"t2",name:"Brain Tumors (Oligoastrocytoma)",tier_label:"Reported",desc:"LZTR1 R284C heterozygous variant in a Noonan syndrome patient who developed oligoastrocytoma at age 22 after GH treatment ages 15–17. Single case; causality not established.",cites:'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12699086/" target="_blank" rel="noopener">Demir 2025</a>'},
+  {tier:"t2",name:"Breast Cancer",tier_label:"Reported",desc:"c.1260+1del variant in a 38-year-old woman with bilateral breast cancer. Putative association; in silico predicts LoF. Not in ClinVar. TCGA shows <2% LZTR1 mutation frequency in breast invasive carcinoma.",cites:'<a href="https://www.mdpi.com/1422-0067/26/14/6704" target="_blank" rel="noopener">Wieleba 2025</a>'},
+  {tier:"t2",name:"NSCLC (TKI Resistance)",tier_label:"Reported",desc:"Germline c.1653C>G (p.Y551*) in EGFR-mutated NSCLC with rapid osimertinib progression. First clinical report; proposed as negative biomarker for EGFR-TKI efficacy.",cites:'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11921366/" target="_blank" rel="noopener">Park 2025</a>'},
+  {tier:"t3",name:"Glioblastoma (Somatic)",tier_label:"Somatic only",desc:"Somatic LZTR1 LoF alterations recurrent in glioblastoma. Brennan et al. (2013) identified LZTR1 as a novel significantly mutated gene in GBM (10/291 exomes). Including deletions and structural variants, LoF frequency has been reported up to ~22% in some analyses. These are tumor-acquired mutations, not germline predisposition.",cites:'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3910500/" target="_blank" rel="noopener">Brennan 2013</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/36445254/" target="_blank" rel="noopener">Ko 2023</a>'},
+  {tier:"t3",name:"Hepatocellular, Colorectal, Lung, Esophagogastric (Pan-Cancer)",tier_label:"Somatic only",desc:"Pan-cancer TCGA analysis identifies LZTR1 missense mutations across multiple cancer types. These are somatic alterations, not germline cancer-risk associations. Splice mutations at Kelch-3 domain (X217_splice) detected in 9 HCC cases.",cites:'<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9593223/" target="_blank" rel="noopener">Pan-cancer analysis 2022</a>'},
+  {tier:"t3",name:"CML (TKI Resistance)",tier_label:"Mechanistic",desc:"LZTR1 loss identified in haploid genetic screen for imatinib resistance in CML. LZTR1 loss → enhanced MAPK signaling → reduced TKI sensitivity. Kelch-domain mutations (not BTB/BACK) disrupt imatinib sensitivity in vitro.",cites:'<a href="https://www.science.org/doi/10.1126/science.aap7607" target="_blank" rel="noopener">Bigenzahn 2018</a>'},
+  {tier:"t4",name:"Melanoma, Pancreatic, Prostate Cancer",tier_label:"Not established",desc:"No published evidence directly linking germline LZTR1 variants to melanoma, pancreatic, or prostate cancer risk in the reviewed literature. LZTR1 is not included in standard hereditary cancer panels for these tumor types.",cites:'<a href="https://www.oncokb.org/gene/LZTR1/germline" target="_blank" rel="noopener">OncoKB</a>'},
+];
+
+// ============ RENDER VARIANT TABLE ============
+const tbody = document.getElementById('variant-tbody');
+const searchInput = document.getElementById('var-search');
+const filterClass = document.getElementById('filter-class');
+const filterType = document.getElementById('filter-type');
+const fcount = document.getElementById('fcount');
+
+function clsBadge(cls){
+  if(cls==='Pathogenic') return '<span class="badge t1">Pathogenic</span>';
+  if(cls==='Likely Pathogenic') return '<span class="badge t2">Likely Pathogenic</span>';
+  if(cls.includes('VUS')) return '<span class="badge t3">VUS-SI</span>';
+  return '<span class="badge t4">'+cls+'</span>';
+}
+
+function renderVariants(){
+  const q = (searchInput.value||'').toLowerCase();
+  const c = filterClass.value;
+  const t = filterType.value;
+  const filtered = variants.filter(v=>{
+    const matchesQ = !q || v.hgvs.toLowerCase().includes(q) || (v.protein||'').toLowerCase().includes(q) || v.syndrome.toLowerCase().includes(q);
+    const matchesC = !c || (c==='VUS with Special Interpretation' ? v.cls.includes('VUS') : v.cls===c);
+    const matchesT = !t || v.type===t;
+    return matchesQ && matchesC && matchesT;
+  });
+  tbody.innerHTML = filtered.length ? filtered.map(v=>`
+    <tr>
+      <td class="mono">${v.hgvs}</td>
+      <td class="mono">${v.protein}</td>
+      <td>${clsBadge(v.cls)}</td>
+      <td>${v.penetrance ? v.penetrance : 'Moderate'}</td>
+      <td>${v.type}</td>
+      <td>${v.syndrome}</td>
+      <td><span class="src-link">${v.src}</span></td>
+    </tr>`).join('') : '<tr><td colspan="7" class="no-results">No variants match your filters.</td></tr>';
+  fcount.textContent = filtered.length + ' / ' + variants.length + ' variants';
+}
+
+searchInput.addEventListener('input', renderVariants);
+filterClass.addEventListener('change', renderVariants);
+filterType.addEventListener('change', renderVariants);
+renderVariants();
+
+// ============ RENDER CANCER CARDS ============
+const cancerContainer = document.getElementById('cancer-cards');
+cancerContainer.innerHTML = cancerCards.map(c=>`
+  <div class="cancer-card ${c.tier}">
+    <span class="badge ${c.tier.replace('t','')==='1'?'t1':c.tier.replace('t','')==='2'?'t2':c.tier.replace('t','')==='3'?'t3':'t4'}">${c.tier_label}</span>
+    <h4 style="margin-top:.5rem">${c.name}</h4>
+    <p>${c.desc}</p>
+    <div class="cites">${c.cites}</div>
+  </div>`).join('');
+
+// ============ THEME TOGGLE ============
+(function(){
+  const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+  r.setAttribute('data-theme',d);
+  function setIcon(){t.innerHTML = d==='dark'
+    ? '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+    : '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');
+  }
+  setIcon();
+  t.addEventListener('click',()=>{
+    d = d==='dark'?'light':'dark';
+    r.setAttribute('data-theme',d);
+    setIcon();
+  });
+})();
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>
